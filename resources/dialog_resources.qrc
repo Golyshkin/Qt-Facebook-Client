@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <file>images/splashscreen/splash.png</file>
+        <file>images/myfriends/face.png</file>
+        <file>images/common/back.png</file>
+        <file>images/common/home.png</file>
+        <file>images/mainmenu/chat.png</file>
+        <file>images/mainmenu/friends.png</file>
+        <file>images/mainmenu/groups.png</file>
+        <file>images/mainmenu/messages.png</file>
+        <file>images/mainmenu/photos.png</file>
+        <file>images/mainmenu/profile.png</file>
+        <file>images/mainmenu/news.png</file>
+        <file>images/mainmenu/events.png</file>
+        <file>images/mainmenu/information.png</file>
+        <file>images/mainmenu/aboutQT.png</file>
+    </qresource>
+</RCC>
