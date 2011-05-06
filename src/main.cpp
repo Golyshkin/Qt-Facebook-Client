@@ -13,6 +13,6 @@ int main( int argc, char *argv[] )
    QNetworkProxy::setApplicationProxy(proxy);
 
    DialogManager manager;
-
+//test
    return a.exec();
 }
