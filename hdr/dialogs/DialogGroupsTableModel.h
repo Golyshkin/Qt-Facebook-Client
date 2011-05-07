@@ -6,35 +6,35 @@
 #include <QString>
 #include <QPair>
 
- class DialogGroupsTableModel : public QAbstractTableModel
- {
-     Q_OBJECT
+class DialogGroupsTableModel : public QAbstractTableModel
+{
+    Q_OBJECT
 
- public:
+public:
 
-     DialogGroupsTableModel( QObject *parent = NULL );
+    DialogGroupsTableModel( QObject *parent = NULL );
 
-     DialogGroupsTableModel( const QList< QPair< QString, int > > & aGroupsList, QObject *parent = NULL );
+    DialogGroupsTableModel( const QList< QPair< QString, int > > & aGroupsList, QObject *parent = NULL );
 
-     virtual int rowCount( const QModelIndex &parent ) const;
+    virtual int rowCount( const QModelIndex &parent ) const;
 
-     virtual int columnCount( const QModelIndex &parent ) const;
+    virtual int columnCount( const QModelIndex &parent ) const;
 
-     virtual QVariant data( const QModelIndex &index, int role ) const;
+    virtual QVariant data( const QModelIndex &index, int role ) const;
 
-     virtual QVariant headerData( int section, Qt::Orientation orientation, int role ) const;
+    virtual QVariant headerData( int section, Qt::Orientation orientation, int role ) const;
 
-     virtual Qt::ItemFlags flags( const QModelIndex &index ) const;
+    virtual Qt::ItemFlags flags( const QModelIndex &index ) const;
 
-     void AddGroup( QString aName, int aId );
+    void AddGroup( QString aName, int aId );
 
-     void UpdateTableContent();
+    void UpdateTableContent();
 
-     const QList< QPair< QString, int > > & getGroupsList();
+    const QList< QPair< QString, int > > & getGroupsList();
 
- private:
+private:
 
-     QList< QPair< QString, int > > m_ListOfGroups;
- };
+    QList< QPair< QString, int > > m_ListOfGroups;
+};
 
 #endif // DIALOGGROUPSTABLEMODEL_H
