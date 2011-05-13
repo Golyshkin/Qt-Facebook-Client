@@ -78,6 +78,11 @@ FacebookNetwokManager::OnLoadComplete( QNetworkReply *pRequest )
          ParseMyFriendsRequest( pRequest );
          break;
       }
+      case FACEBOOK_REQUEST_GROUPS_DATA:
+      {
+         ParseGroupsRequest( pRequest );
+         break;
+      }
       default: // If not required special parsing just returning the result
       {
          emit FacebookNetwokManagerFinished( m_RequestType, pRequest->readAll() );
@@ -130,3 +135,18 @@ FacebookNetwokManager::ParseMyFriendsRequest( QNetworkReply *pRequest )
       ClearRequestType();
    }
 }
+
+void
+FacebookNetwokManager::ParseGroupsRequest( QNetworkReply *pRequest )
+{
+   m_pFacebookLogger->Log( "FacebookNetwokManager::ParseGroupsRequest()" );
+
+   if ( pRequest->error() == QNetworkReply::NoError )
+   {
+      // FacebookNetwokManager finished current task and waiting another request
+      emit FacebookNetwokManagerFinished( m_RequestType, pRequest->readAll() );
+
+      ClearRequestType();
+   }
+}
+

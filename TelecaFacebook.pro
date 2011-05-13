@@ -43,7 +43,11 @@ HEADERS =   $$QJSON_HDR_DIR/parser.h                        \
             $$DIALOGS_HDR_DIR/DialogMyFriends.h             \
             $$DIALOGS_HDR_DIR/DialogMyFriendsTableModel.h   \
             $$DIALOGS_HDR_DIR/DialogMyFriendsDetails.h      \
-
+            $$DIALOGS_HDR_DIR/DialogGroupsTableModel.h      \
+            $$DIALOGS_HDR_DIR/DialogGroups.h                \
+            $$DIALOGS_HDR_DIR/DialogGroupsDetails.h         \
+            $$DIALOGS_HDR_DIR/DialogNews.h                  \
+            $$DIALOGS_HDR_DIR/DialogNewsListModel.h         \
 
 
 SOURCES =   $$SRC_DIR/main.cpp                              \
@@ -56,7 +60,12 @@ SOURCES =   $$SRC_DIR/main.cpp                              \
             $$DIALOGS_SRC_DIR/DialogMainMenu.cpp            \
             $$DIALOGS_SRC_DIR/DialogMyFriends.cpp           \
             $$DIALOGS_SRC_DIR/DialogMyFriendsTableModel.cpp \
+            $$DIALOGS_SRC_DIR/DialogGroups.cpp              \
+            $$DIALOGS_SRC_DIR/DialogGroupsTableModel.cpp    \
             $$DIALOGS_SRC_DIR/DialogMyFriendsDetails.cpp    \
+            $$DIALOGS_SRC_DIR/DialogGroupsDetails.cpp       \
+            $$DIALOGS_SRC_DIR//DialogNews.cpp               \
+            $$DIALOGS_SRC_DIR//DialogNewsListModel.cpp      \
 
 # Supporting main application icon
 RC_FILE = $$RESOURCES_DIR/telecaFacebook.rc

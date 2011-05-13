@@ -38,7 +38,7 @@ DialogGroupsTableModel::data( const QModelIndex &index, int role ) const
       case Qt::DisplayRole:
          return m_ListOfGroups.at( row ).first;
       case Qt::DecorationRole:
-         return QPixmap( ":images/groups/item.png" );
+         return QPixmap( ":images/mainmenu/groups.png" );
       case Qt::FontRole:
          return QFont( "Verdana", 14 );
       case Qt::BackgroundRole:

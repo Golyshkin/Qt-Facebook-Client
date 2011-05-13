@@ -10,11 +10,15 @@
 #include <QApplication>
 #include <DialogEvent.h>
 
+#include <FacebookNetwokManager.h>
+
 #include <DialogLogin.h>
 #include <DialogMainMenu.h>
 #include <DialogMyFriends.h>
 #include <DialogMyFriendsDetails.h>
-
+#include <DialogNews.h>
+#include <DialogGroups.h>
+#include <DialogGroupsDetails.h>
 #include <FacebookNetwokManager.h>
 
 static const DIALOGS_MAP_T DIALOGS_STARTUP_MAP[] = 
@@ -23,6 +27,9 @@ static const DIALOGS_MAP_T DIALOGS_STARTUP_MAP[] =
   { DIALOG_MAINMENU,          DialogMainMenu::Instance           },
   { DIALOG_MYFRIENDS,         DialogMyFriends::Instance          },
   { DIALOG_MYFRIENDS_DETAILS, DialogMyFriendsDetails::Instance   },  
+  { DIALOG_GROUPS,            DialogGroups::Instance             },
+  { DIALOG_GROUPS_DETAILS,    DialogGroupsDetails::Instance      },
+  { DIALOG_NEWS,              DialogNews::Instance               },
   { DIALOG_UNKNOWN,           NULL                               }
 };
 

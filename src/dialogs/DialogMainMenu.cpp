@@ -70,8 +70,8 @@ DialogMainMenu::SetUI()
    m_pPhotoImage = new QLabel();
    QPixmap *pPhoto = new QPixmap(USER_PHOTO_WIDTH,USER_PHOTO_HEIGHT);
    m_pPhotoImage->setPixmap(*pPhoto);
-   m_pUserInfo = new QLabel(tr("Golyshkin Alexander"));
-   m_pUserStatus =new QLabel(tr("I'm very Happy!!!"));
+   m_pUserInfo = new QLabel(tr(""));
+   m_pUserStatus =new QLabel(tr("Be a Happy!!!"));
 
 
    int xpos=0, ypos=0;
@@ -147,11 +147,16 @@ DialogMainMenu::OnOptionsClick(int option)
         break;
     case Friends: GetDialogManager()->PushDialog( DIALOG_MYFRIENDS );
         break;
-    case News:
+    case News: GetDialogManager()->PushDialog( DIALOG_NEWS );
+        break;
     case Messages:
-    case Groups:
+        break;
+    case Groups: GetDialogManager()->PushDialog( DIALOG_GROUPS );
+        break;
     case Events:
+        break;
     case Photos:
+        break;
     case About:
         break;
     case AboutQT: qApp->aboutQt();

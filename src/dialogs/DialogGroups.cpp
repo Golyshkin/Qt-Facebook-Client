@@ -89,19 +89,18 @@ DialogGroups::SetUI()
 
    connect( pTableView->selectionModel(), SIGNAL( selectionChanged( const QItemSelection &, const QItemSelection & ) ),
                                     this, SIGNAL( selectionChanged( const QItemSelection & ) ) );
-   connect( pTableView, SIGNAL( sortByColumn(int) ), SLOT( OnSortClicked( int ) ) );
+
+   connect( pTableView, SIGNAL( pressed(const QModelIndex &) ), SLOT( OnItemClicked(const QModelIndex &) ) );
+   connect( pTableView, SIGNAL( activated(const QModelIndex &) ), SLOT( OnItemClicked(const QModelIndex &) ) );
+   connect( pTableView, SIGNAL( clicked(const QModelIndex &) ), SLOT( OnItemClicked(const QModelIndex &) ) );
+   connect( pTableView, SIGNAL( doubleClicked(const QModelIndex &) ), SLOT( OnItemClicked(const QModelIndex &) ) );
 
    pMainLayout->addWidget( pTableView );
+   pTableView->setFocus();
 }
 
 void
-DialogGroups::OnBackClick()
-{
-   m_pDialogManager->PopDialog();
-}
-
-void
-DialogGroups::OnFacebookNetwokManagerFinished( FACEBOOK_REQUEST_T aRequest, QByteArray aContent )
+DialogGroups::OnFacebookNetwokManagerFinished( FACEBOOK_REQUEST_T aRequest, const QByteArray& aContent )
 {
    QJson::Parser parser;
    bool isOk = false;
@@ -119,13 +118,14 @@ DialogGroups::OnFacebookNetwokManagerFinished( FACEBOOK_REQUEST_T aRequest, QByt
       m_pTableModel->AddGroup( groupData[ "name" ].toString(), groupData[ "id" ].toInt() );
    }
 
-   disconnect( GetDialogManager()->GetNetworkManager(), SIGNAL( FacebookNetwokManagerFinished( FACEBOOK_REQUEST_T, QString ) ) );
+   disconnect( SIGNAL( FacebookNetwokManagerFinished( FACEBOOK_REQUEST_T, QString ) ) );
 }
 
 void
-DialogGroups::OnSortClicked( int aColumn )
+DialogGroups::OnItemClicked( const QModelIndex &aItemIndex )
 {
-   Q_UNUSED( aColumn );
+   int groupId = m_pTableModel->getGroupsList().at( aItemIndex.row() ).second;
+   DialogEvent startCmd( DialogEvent::DIALOG_CMD_GROUP_ID, (void *)groupId );
 
-   m_pTableModel->UpdateTableContent();
+   GetDialogManager()->PushDialog( DIALOG_GROUPS_DETAILS, &startCmd );
 }
