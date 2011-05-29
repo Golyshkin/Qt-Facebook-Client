@@ -18,7 +18,8 @@ public:
    {
       DIALOG_CMD_UNKNOWN = 0,
       DIALOG_CMD_DAILOG_STARTED,
-      DIALOG_CMD_FRIEND_ID
+      DIALOG_CMD_FRIEND_ID,
+      DIALOG_CMD_GROUP_ID
    };
 
    DialogEvent( DIALOG_CMD_T cmd, void *pData = NULL, int aDataSize = 0 );

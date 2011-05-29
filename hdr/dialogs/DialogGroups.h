@@ -1,6 +1,8 @@
 #ifndef DIALOG_GROUPS_H
 #define DIALOG_GROUPS_H
 
+#include <QModelIndex>
+
 #include <FacebookDialog.h>
 #include <FacebookNetwokClient_def.h>
 
@@ -26,11 +28,9 @@ public:
 
 private slots:
 
-    void OnBackClick();
+    void OnFacebookNetwokManagerFinished( FACEBOOK_REQUEST_T aRequest, const QByteArray& aContent );
 
-    void OnFacebookNetwokManagerFinished( FACEBOOK_REQUEST_T aRequest, QByteArray aContent );
-
-    void OnSortClicked( int aColumn );
+    void OnItemClicked( const QModelIndex &aItemIndex );
 
 private:
 
